@@ -1,0 +1,105 @@
+{
+  "name": "epluskit",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "基于 Element Plus 的扩展与工具库",
+  "author": {
+    "name": "joygqz",
+    "email": "joygqz@gmail.com",
+    "url": "https://github.com/joygqz"
+  },
+  "license": "MIT",
+  "directories": {
+    "lib": "./dist",
+    "example": "./example"
+  },
+  "homepage": "https://github.com/joygqz/epluskit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joygqz/epluskit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joygqz/epluskit/issues"
+  },
+  "keywords": [
+    "element-plus",
+    "vue3",
+    "kit",
+    "ui",
+    "components",
+    "utilities",
+    "plugins",
+    "extensions",
+    "vue",
+    "typescript",
+    "vite"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./index.css": "./dist/index.css",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README-zh-CN.md",
+    "README.md",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "es6",
+    "not dead",
+    "Chrome >= 51",
+    "Firefox >= 54",
+    "Safari >= 10",
+    "Edge >= 79",
+    "and_chr >= 51",
+    "and_ff >= 54",
+    "ios_saf >= 10.3"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm lint && vite build",
+    "lint": "run-p lint:*",
+    "lint:eslint": "eslint --fix .",
+    "lint:typescript": "vue-tsc -b",
+    "patch": "npm version patch -m 'chore: release v%s'",
+    "prepublishOnly": "pnpm build",
+    "release": "npm publish --access public",
+    "release:dry": "npm publish --dry-run"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.2.0",
+    "@types/node": "^24.2.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.7.0",
+    "element-plus": "^2.10.6",
+    "eslint": "^9.33.0",
+    "jiti": "^2.5.1",
+    "npm-run-all2": "^8.0.4",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.0",
+    "vue": "^3.5.18",
+    "vue-tsc": "^3.0.5"
+  }
+}
