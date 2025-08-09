@@ -2,7 +2,7 @@
   "name": "epluskit",
   "type": "module",
   "version": "0.0.0",
-  "description": "基于 Element Plus 的扩展与工具库",
+  "description": "基于 Element Plus 的扩展与工具库。",
   "author": {
     "name": "joygqz",
     "email": "joygqz@gmail.com",
