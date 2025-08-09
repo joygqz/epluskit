@@ -1,5 +1,8 @@
 # EplusKit
 
+[![npm version](https://img.shields.io/npm/v/epluskit.svg)](https://www.npmjs.com/package/epluskit)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 基于 Element Plus 的扩展与工具库
 
 ## 简介
