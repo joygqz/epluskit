@@ -64,6 +64,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       vue(),
       dts({
+        processor: 'vue',
         tsconfigPath: './tsconfig.app.json',
         include: ['env.d.ts', 'src/**/*.{ts,tsx,vue}'],
         bundleTypes: true,

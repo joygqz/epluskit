@@ -20,6 +20,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
         version: 6.0.1(vite@7.1.1(@types/node@24.2.1)(jiti@2.5.1)(yaml@2.8.1))(vue@3.5.18(typescript@5.8.3))
+      '@vue/language-core':
+        specifier: ^3.0.5
+        version: 3.0.5(typescript@5.8.3)
       '@vue/tsconfig':
         specifier: ^0.7.0
         version: 0.7.0(typescript@5.8.3)(vue@3.5.18(typescript@5.8.3))
