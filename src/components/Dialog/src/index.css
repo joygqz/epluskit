@@ -1,0 +1,18 @@
+/* Scale Animation */
+.dialog-scale-enter-active,
+.dialog-scale-leave-active,
+.dialog-scale-enter-active .el-dialog,
+.dialog-scale-leave-active .el-dialog {
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.dialog-scale-enter-from,
+.dialog-scale-leave-to {
+  opacity: 0;
+}
+
+.dialog-scale-enter-from .el-dialog,
+.dialog-scale-leave-to .el-dialog {
+  transform: scale(0.5);
+  opacity: 0;
+}

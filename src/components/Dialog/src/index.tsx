@@ -1,20 +1,26 @@
-import type { VNode } from 'vue'
+import type { DialogProps } from 'element-plus'
+import type { Component, VNode } from 'vue'
 import { ElDialog } from 'element-plus'
 import { h, isVNode, onBeforeUnmount, ref, render, watch } from 'vue'
 import 'element-plus/es/components/dialog/style/css'
+import './index.css'
 
-export function useEkDialog(props: any): any {
+export interface EkDialogSlots {
+  title?: string | Component
+  content?: string | Component
+  footer?: string | Component
+}
+
+export function useEkDialog(props: Partial<DialogProps>, slots: EkDialogSlots): any {
   const container = document.createElement('div')
   document.body.appendChild(container)
   const modelValue = ref(false)
   let vnode: VNode | null = null
-  const { title, content, footer } = props
-  delete props.title
-  delete props.content
-  delete props.footer
-
+  const contentProps = ref<any>({})
   const updateVNode = (): void => {
     vnode = h(ElDialog, {
+      'draggable': true,
+      'transition': 'dialog-scale',
       ...props,
       'modelValue': modelValue.value,
       'onUpdate:modelValue': (val: boolean) => {
@@ -22,38 +28,26 @@ export function useEkDialog(props: any): any {
       },
     }, {
       default: () => {
-        if (typeof content === 'string') {
-          return content
+        if (typeof slots.content === 'string') {
+          return slots.content
         }
-        else if (isVNode(content)) {
-          return content
+        else if (isVNode(slots.content)) {
+          return slots.content
         }
-        else if (content) {
-          return h(content)
-        }
-        return null
-      },
-      header: () => {
-        if (typeof title === 'string') {
-          return title
-        }
-        else if (isVNode(title)) {
-          return title
-        }
-        else if (title) {
-          return h(title)
+        else if (slots.content) {
+          return h(slots.content, contentProps.value)
         }
         return null
       },
       footer: () => {
-        if (typeof footer === 'string') {
-          return footer
+        if (typeof slots.footer === 'string') {
+          return slots.footer
         }
-        else if (isVNode(footer)) {
-          return footer
+        else if (isVNode(slots.footer)) {
+          return slots.footer
         }
-        else if (footer) {
-          return h(footer)
+        else if (slots.footer) {
+          return h(slots.footer)
         }
         return null
       },
@@ -62,7 +56,7 @@ export function useEkDialog(props: any): any {
     render(vnode, container)
   }
 
-  watch([modelValue], () => {
+  watch([modelValue, contentProps], () => {
     updateVNode()
   }, {
     immediate: true,
@@ -78,13 +72,12 @@ export function useEkDialog(props: any): any {
   })
 
   return {
-    open() {
-      if (vnode)
-        modelValue.value = true
+    open(props: any) {
+      modelValue.value = true
+      contentProps.value = props || {}
     },
     close() {
-      if (vnode)
-        modelValue.value = false
+      modelValue.value = false
     },
     destroy() {
       if (vnode) {

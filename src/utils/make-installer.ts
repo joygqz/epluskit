@@ -1,6 +1,6 @@
 import type { App, Plugin } from 'vue'
 
-interface EPlusKitInstallerResult {
+export interface EPlusKitInstallerResult {
   version: string
   install: (app: App) => void
 }

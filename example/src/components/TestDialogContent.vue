@@ -1,9 +1,17 @@
 <script setup lang="ts">
-
+defineProps<{
+  message: string
+}>()
+defineEmits<{
+  (e: 'close'): void
+}>()
 </script>
 
 <template>
   <div>
-    这是测试弹窗内容
+    {{ message }}
+    <button @click="$emit('close')">
+      关闭弹窗
+    </button>
   </div>
 </template>

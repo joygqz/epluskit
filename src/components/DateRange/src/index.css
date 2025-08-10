@@ -1,0 +1,10 @@
+.ek-date-range {
+  width: var(--ek-date-range-width);
+  display: inline-flex;
+  align-items: center;
+}
+
+.ek-date-range-separator {
+  margin: 0 8px;
+  color: var(--el-text-color-primary);
+}

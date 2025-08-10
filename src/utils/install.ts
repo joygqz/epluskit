@@ -1,16 +1,16 @@
-import type { App } from 'vue'
+import type { App, Component, ComponentCustomProperties, Directive } from 'vue'
 
 // 安装组件
-export function withInstall(component: any): any {
+export function withInstall(component: Component): any {
   return {
     install(app: App): void {
-      app.component(component.name, component)
+      app.component(component.name!, component)
     },
   }
 }
 
 // 安装指令
-export function withInstallDirective(directive: any, name: string): any {
+export function withInstallDirective(directive: Directive, name: string): any {
   return {
     install(app: App): void {
       app.directive(name, directive)
@@ -19,7 +19,7 @@ export function withInstallDirective(directive: any, name: string): any {
 }
 
 // 安装方法
-export function withInstallFunction(func: any, name: string): any {
+export function withInstallFunction(func: ComponentCustomProperties, name: string): any {
   return {
     install(app: App): void {
       app.config.globalProperties[name] = func
