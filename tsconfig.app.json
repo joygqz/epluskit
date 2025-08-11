@@ -7,7 +7,6 @@
       "epluskit": ["./src/index"],
       "@/*": ["./src/*"]
     },
-
     /* Linting */
     "strict": true,
     "noFallthroughCasesInSwitch": true,
