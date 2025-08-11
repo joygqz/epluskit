@@ -8,9 +8,10 @@ defineOptions({
   name: 'EkDateRange',
 })
 
-const { type = 'date', valueFormat = '' } = defineProps<{
+const { type = 'date', valueFormat = '', rangeSeparator = '至' } = defineProps<{
   type?: 'date' | 'datetime' | 'month' | 'year'
   valueFormat?: string
+  rangeSeparator?: string
   props?: Record<string, any>
   startProps?: Record<string, any>
   endProps?: Record<string, any>
@@ -25,6 +26,9 @@ const _valueFormat = valueFormat || (type === 'datetime' ? 'YYYY-MM-DD HH:mm:ss'
 
 const startValue = ref<Date | null>(null)
 const endValue = ref<Date | null>(null)
+
+const startPlaceholder = type === 'month' ? '开始月份' : type === 'year' ? '开始年' : type === 'datetime' ? '开始日期时间' : '开始日期'
+const endPlaceholder = type === 'month' ? '结束月份' : type === 'year' ? '结束年' : type === 'datetime' ? '结束日期时间' : '结束日期'
 
 const startPicker = useTemplateRef<DatePickerInstance>('startPickerRef')
 const endPicker = useTemplateRef<DatePickerInstance>('endPickerRef')
@@ -42,6 +46,7 @@ function onStartChange(value: Date | null) {
 
   modelValue.value = [startValue.value, endValue.value]
 }
+
 function onEndChange(value: Date | null) {
   endValue.value = value
   if (!startValue.value || (startValue.value && value && value < startValue.value)) {
@@ -55,9 +60,6 @@ function onEndChange(value: Date | null) {
 
   modelValue.value = [startValue.value, endValue.value]
 }
-
-const startPlaceholder = type === 'month' ? '开始月份' : type === 'year' ? '开始年' : type === 'datetime' ? '开始日期时间' : '开始日期'
-const endPlaceholder = type === 'month' ? '结束月份' : type === 'year' ? '结束年' : type === 'datetime' ? '结束日期时间' : '结束日期'
 </script>
 
 <template>
@@ -73,7 +75,7 @@ const endPlaceholder = type === 'month' ? '结束月份' : type === 'year' ? '�
         ...startProps,
       }" @change="onStartChange"
     />
-    <span class="ek-date-range-separator">至</span>
+    <span class="ek-date-range-separator">{{ rangeSeparator }}</span>
     <ElDatePicker
       ref="endPickerRef" v-model="endValue" :type="type" :placeholder="endPlaceholder" :value-format="_valueFormat"
       v-bind="{
