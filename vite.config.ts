@@ -7,74 +7,66 @@ import { defineConfig } from 'vite'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig(({ command, mode }) => {
+  const defaultConfig = {
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'packages'),
+        // 'epluskit': resolve(__dirname, 'packages'),
+      },
+    },
+    plugins: [
+      vue(),
+    ],
+  }
+
   if (command === 'serve') {
     return {
+      ...defaultConfig,
       root: 'example',
-      plugins: [
-        vue(),
-      ],
-      resolve: {
-        alias: {
-          '@': resolve(__dirname, 'src'),
-          'epluskit': resolve(__dirname, 'src'),
-        },
-      },
     }
   }
 
   if (mode === 'example') {
     return {
+      ...defaultConfig,
       root: 'example',
-      plugins: [
-        vue(),
-      ],
       base: '/epluskit/',
       build: {
         outDir: '../docs',
         emptyOutDir: true,
       },
-      resolve: {
-        alias: {
-          '@': resolve(__dirname, 'src'),
-          'epluskit': resolve(__dirname, 'src'),
-        },
-      },
     }
   }
 
   return {
+    ...defaultConfig,
     build: {
       lib: {
-        entry: resolve(__dirname, 'src/index.ts'),
+        entry: resolve(__dirname, 'packages/index.ts'),
         name: 'index',
         fileName: 'index',
       },
       target: 'es2015',
       rollupOptions: {
         external: ['vue', 'element-plus'],
-        output: {
-          exports: 'named',
-          globals: {
-            'vue': 'Vue',
-            'element-plus': 'ElementPlus',
+        input: ['packages/index.ts'],
+        output: [
+          {
+            entryFileNames: '[name].js',
+            preserveModules: true,
+            preserveModulesRoot: 'packages',
           },
-        },
+        ],
       },
     },
     plugins: [
       vue(),
       dts({
         processor: 'vue',
+        include: ['./packages/**/*.{ts,tsx,vue}'],
         tsconfigPath: './tsconfig.app.json',
-        include: ['env.d.ts', 'src/**/*.{ts,tsx,vue}'],
-        bundleTypes: true,
+        copyDtsFiles: true,
       }),
     ],
-    resolve: {
-      alias: {
-        '@': resolve(__dirname, 'src'),
-        'epluskit': resolve(__dirname, 'src'),
-      },
-    },
   }
 })

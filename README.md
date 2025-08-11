@@ -47,7 +47,7 @@ app.use(Dialog)
 ## 组件与工具目录
 
 - Dialog 对话框
-- ...（更多组件和工具，详见 `src/components`）
+- ...（更多组件和工具，详见 `packages/components`）
 
 ## License
 

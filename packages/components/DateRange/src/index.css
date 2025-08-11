@@ -7,4 +7,5 @@
 .ek-date-range-separator {
   margin: 0 8px;
   color: var(--el-text-color-primary);
+  font-size: 14px;
 }

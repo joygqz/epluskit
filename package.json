@@ -42,6 +42,7 @@
       "default": "./dist/index.js"
     },
     "./index.css": "./dist/index.css",
+    "./global": "./dist/global.d.ts",
     "./*": "./*"
   },
   "main": "./dist/index.js",
@@ -71,7 +72,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "pnpm lint && vite build",
+    "build": "pnpm lint && tsc --noEmit && vite build",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --fix .",
     "lint:typescript": "vue-tsc -b",

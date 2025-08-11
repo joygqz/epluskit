@@ -9,7 +9,7 @@ defineOptions({
 })
 
 const { type = 'date', valueFormat = '', rangeSeparator = '至' } = defineProps<{
-  type?: 'date' | 'datetime' | 'month' | 'year'
+  type?: 'datetime' | 'date' | 'month' | 'year'
   valueFormat?: string
   rangeSeparator?: string
   props?: Record<string, any>
@@ -17,12 +17,12 @@ const { type = 'date', valueFormat = '', rangeSeparator = '至' } = defineProps<
   endProps?: Record<string, any>
 }>()
 
+const _valueFormat = valueFormat || (type === 'datetime' ? 'YYYY-MM-DD HH:mm:ss' : type === 'date' ? 'YYYY-MM-DD' : type === 'month' ? 'YYYY-MM' : 'YYYY')
+
 const modelValue = defineModel<(Date | null)[]>({
   type: Array,
   default: [],
 })
-
-const _valueFormat = valueFormat || (type === 'datetime' ? 'YYYY-MM-DD HH:mm:ss' : 'YYYY-MM-DD')
 
 const startValue = ref<Date | null>(null)
 const endValue = ref<Date | null>(null)
@@ -69,16 +69,16 @@ function onEndChange(value: Date | null) {
     }"
   >
     <ElDatePicker
-      ref="startPickerRef" v-model="startValue" :type="type" :placeholder="startPlaceholder" :value-format="_valueFormat"
-      v-bind="{
+      ref="startPickerRef" v-model="startValue" :type="type" :placeholder="startPlaceholder"
+      :value-format="_valueFormat" v-bind="{
         ...props,
         ...startProps,
       }" @change="onStartChange"
     />
     <span class="ek-date-range-separator">{{ rangeSeparator }}</span>
     <ElDatePicker
-      ref="endPickerRef" v-model="endValue" :type="type" :placeholder="endPlaceholder" :value-format="_valueFormat"
-      v-bind="{
+      ref="endPickerRef" v-model="endValue" :type="type" :placeholder="endPlaceholder"
+      :value-format="_valueFormat" v-bind="{
         ...props,
         ...endProps,
       }" @change="onEndChange"
