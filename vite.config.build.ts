@@ -1,55 +1,21 @@
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import vue from '@vitejs/plugin-vue'
-import { EpluskitResolver } from 'epluskit'
 import dts from 'unplugin-dts/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-export default defineConfig(({ command, mode }) => {
-  const defaultConfig = {
-    resolve: {
-      alias: {
-        '@': resolve(__dirname, 'packages'),
-      },
-    },
-    plugins: [
-      vue(),
-      Components({
-        resolvers: [ElementPlusResolver(), EpluskitResolver()],
-      }),
-    ],
-  }
-
-  if (command === 'serve') {
-    return {
-      ...defaultConfig,
-      root: 'example',
-    }
-  }
-
-  if (mode === 'example') {
-    return {
-      ...defaultConfig,
-      root: 'example',
-      base: '/epluskit/',
-      build: {
-        outDir: '../docs',
-        emptyOutDir: true,
-      },
-    }
-  }
-
-  // dist 打包
+export default defineConfig(({ mode }) => {
   if (mode === 'dist') {
     return {
-      ...defaultConfig,
+      resolve: {
+        alias: {
+          '@': resolve(__dirname, 'packages'),
+        },
+      },
       build: {
         lib: {
-          formats: ['es'],
           entry: resolve(__dirname, 'packages/index.ts'),
           name: 'index',
           fileName: 'index',
@@ -59,7 +25,12 @@ export default defineConfig(({ command, mode }) => {
           external: ['vue', 'element-plus'],
           output: {
             exports: 'named',
+            globals: {
+              'vue': 'Vue',
+              'element-plus': 'ElementPlus',
+            },
           },
+
         },
       },
       plugins: [
@@ -69,7 +40,11 @@ export default defineConfig(({ command, mode }) => {
   }
 
   return {
-    ...defaultConfig,
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'packages'),
+      },
+    },
     build: {
       cssCodeSplit: true,
       lib: {

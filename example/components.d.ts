@@ -9,7 +9,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     EkDateRange: typeof import('epluskit')['EkDateRange']
-    ElButton: typeof import('element-plus/es')['ElButton']
     TestDialogContent: typeof import('./src/components/TestDialogContent.vue')['default']
   }
 }
