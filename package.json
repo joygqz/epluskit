@@ -72,7 +72,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "pnpm lint && tsc --noEmit && vite build",
+    "build": "pnpm lint && vite build",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --fix .",
     "lint:typescript": "vue-tsc -b",
