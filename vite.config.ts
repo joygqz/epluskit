@@ -11,7 +11,6 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: {
         '@': resolve(__dirname, 'packages'),
-        // 'epluskit': resolve(__dirname, 'packages'),
       },
     },
     plugins: [
@@ -41,6 +40,9 @@ export default defineConfig(({ command, mode }) => {
   return {
     ...defaultConfig,
     build: {
+      watch: {
+        include: 'packages/**',
+      },
       lib: {
         entry: resolve(__dirname, 'packages/index.ts'),
         name: 'index',
