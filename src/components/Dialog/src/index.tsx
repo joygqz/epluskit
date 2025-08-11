@@ -11,7 +11,13 @@ export interface EkDialogSlots {
   footer?: string | Component
 }
 
-export function useEkDialog(props: Partial<DialogProps>, slots: EkDialogSlots): any {
+export interface EkDialogInstance {
+  open: (props?: any) => void
+  close: () => void
+  destroy: () => void
+}
+
+export function useEkDialog(props: Partial<DialogProps>, slots: EkDialogSlots): EkDialogInstance {
   const container = document.createElement('div')
   document.body.appendChild(container)
   const modelValue = ref(false)
