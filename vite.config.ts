@@ -40,9 +40,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     ...defaultConfig,
     build: {
-      watch: {
-        include: 'packages/**',
-      },
+      cssCodeSplit: true,
       lib: {
         entry: resolve(__dirname, 'packages/index.ts'),
         name: 'index',

@@ -71,7 +71,7 @@
     "ios_saf >= 10.3"
   ],
   "scripts": {
-    "dev": "run-p example build -- --watch",
+    "dev": "run-p example build",
     "example": "vite",
     "build": "run-p lint \"build-only {@}\" --",
     "build-only": "vite build",

@@ -24,29 +24,24 @@ pnpm add element-plus epluskit
 ### 全量引入
 
 ```ts
-import ElementPlus from 'element-plus'
+// ...
 import EplusKit from 'epluskit'
-import { createApp } from 'vue'
-import App from './App.vue'
 import 'epluskit/index.css'
 
-const app = createApp(App)
-app.use(ElementPlus)
 app.use(EplusKit)
-app.mount('#app')
+// ...
 ```
 
 ### 按需引入
 
 ```ts
-import { Dialog } from 'epluskit'
-
-app.use(Dialog)
+import { EkDateRange } from 'epluskit'
 ```
 
 ## 组件与工具目录
 
-- Dialog 对话框
+- EkDateRange 组件：双日期选择器
+- useEkDialog 命令：命令式弹窗
 - ...（更多组件和工具，详见 `packages/components`）
 
 ## License
