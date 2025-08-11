@@ -6,4 +6,9 @@ export default antfu({
   rules: {
     'no-console': 'off',
   },
+  ignores: [
+    'dist',
+    'es',
+    'lib',
+  ],
 })

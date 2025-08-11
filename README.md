@@ -32,10 +32,34 @@ app.use(EplusKit)
 // ...
 ```
 
-### 按需引入
+### 按需自动引入（推荐）
+
+安装插件
+
+```shell
+pnpm add unplugin-vue-components unplugin-auto-import -D
+```
+
+配置 Vite 配置文件
 
 ```ts
-import { EkDateRange } from 'epluskit'
+import { EpluskitResolver } from 'epluskit'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  // ...
+  plugins: [
+    // ...
+    AutoImport({
+      resolvers: [EpluskitResolver()],
+    }),
+    Components({
+      resolvers: [EpluskitResolver()],
+    }),
+  ],
+})
 ```
 
 ## 组件与工具目录

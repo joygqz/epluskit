@@ -7,7 +7,3 @@ import DialogTest from './DialogTest.vue'
   <DialogTest />
   <DateRangeTest />
 </template>
-
-<style scoped>
-
-</style>
