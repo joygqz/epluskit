@@ -14,5 +14,5 @@
     "erasableSyntaxOnly": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite-env.d.ts", "packages/**/*", "example/**/*"]
+  "include": ["vite-env.d.ts", "packages/**/*"]
 }
