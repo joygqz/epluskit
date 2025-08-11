@@ -26,14 +26,14 @@ const _valueFormat = valueFormat || (type === 'datetime' ? 'YYYY-MM-DD HH:mm:ss'
 const startValue = ref<Date | null>(null)
 const endValue = ref<Date | null>(null)
 
-const startPickerRef = useTemplateRef<DatePickerInstance>('startPickerRef')
-const endPickerRef = useTemplateRef<DatePickerInstance>('endPickerRef')
+const startPicker = useTemplateRef<DatePickerInstance>('startPickerRef')
+const endPicker = useTemplateRef<DatePickerInstance>('endPickerRef')
 
 function onStartChange(value: Date | null) {
   startValue.value = value
   if (!endValue.value || (endValue.value && value && value > endValue.value)) {
     endValue.value = startValue.value
-    endPickerRef.value?.focus()
+    endPicker.value?.focus()
   }
 
   if (!value) {
@@ -46,7 +46,7 @@ function onEndChange(value: Date | null) {
   endValue.value = value
   if (!startValue.value || (startValue.value && value && value < startValue.value)) {
     startValue.value = endValue.value
-    startPickerRef.value?.focus()
+    startPicker.value?.focus()
   }
 
   if (!value) {
