@@ -16,8 +16,9 @@ export default defineConfig(({ mode }) => {
       },
       build: {
         lib: {
+          formats: ['iife'],
           entry: resolve(__dirname, 'packages/index.ts'),
-          name: 'index',
+          name: 'Epluskit',
           fileName: 'index',
         },
         target: 'es2015',
@@ -30,7 +31,6 @@ export default defineConfig(({ mode }) => {
               'element-plus': 'ElementPlus',
             },
           },
-
         },
       },
       plugins: [
@@ -60,6 +60,14 @@ export default defineConfig(({ mode }) => {
             entryFileNames: '[name].js',
             preserveModules: true,
             dir: 'es',
+            preserveModulesRoot: 'packages',
+          },
+          {
+            exports: 'named',
+            format: 'cjs',
+            entryFileNames: '[name].js',
+            preserveModules: true,
+            dir: 'lib',
             preserveModulesRoot: 'packages',
           },
         ],

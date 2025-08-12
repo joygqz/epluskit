@@ -13,5 +13,21 @@ export default function () {
         ],
       }
     }
+
+    if (name.startsWith('useEk')) {
+      const hookName = name.replace(/^useEk/, '')
+      return {
+        name,
+        from: 'epluskit',
+        sideEffects: [
+          `epluskit/es/components/${hookName}/src/index.css`,
+          ...(hookName === 'Dialog'
+            ? ['element-plus/es/components/dialog/style/css']
+            : []),
+        ],
+      }
+    }
+
+    return null
   }
 }

@@ -10,7 +10,6 @@ const form = ref({
 </script>
 
 <template>
-  <ElButton>按钮</ElButton>
   <EkDateRange v-model="form.dateRange" />
   {{ form.dateRange }}
   <EkDateRange v-model="form.dateTimeRange" type="datetime" />

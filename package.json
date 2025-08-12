@@ -45,13 +45,12 @@
     ".": {
       "types": "./es/index.d.ts",
       "import": "./es/index.js",
-      "default": "./es/index.js"
+      "require": "./lib/index.js"
     },
-    "./index.css": "./dist/index.css",
     "./global": "./es/global.d.ts",
     "./*": "./*"
   },
-  "main": "./es/index.js",
+  "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
   "files": [
@@ -60,7 +59,8 @@
     "README-zh-CN.md",
     "README.md",
     "dist",
-    "es"
+    "es",
+    "lib"
   ],
   "engines": {
     "node": ">=20.0.0",
@@ -78,11 +78,11 @@
     "ios_saf >= 10.3"
   ],
   "scripts": {
-    "dev": "run-s build example",
-    "example": "vite --config vite.config.serve.ts",
+    "dev": "run-p example \"build:es {@}\" -- --watch",
+    "example": "vite --config vite.serve.config.ts",
     "build": "run-s lint build:es build:dist",
-    "build:es": "vite build --config vite.config.build.ts",
-    "build:dist": "vite build --mode dist --config vite.config.build.ts",
+    "build:es": "vite build --config vite.build.config.ts",
+    "build:dist": "vite build --mode dist --config vite.build.config.ts",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --fix ./packages",
     "lint:typescript": "vue-tsc -b",

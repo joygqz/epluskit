@@ -90,7 +90,9 @@ export function useEkDialog(props: Partial<DialogProps>, slots: EkDialogSlots): 
         render(null, container)
         vnode = null
       }
-      document.body.removeChild(container)
+      if (container.parentNode) {
+        document.body.removeChild(container)
+      }
     },
   }
 }
