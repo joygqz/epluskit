@@ -7,5 +7,6 @@
 export {}
 declare global {
   const EkDateRange: typeof import('epluskit')['EkDateRange']
+  const EkTable: typeof import('epluskit')['EkTable']
   const useEkDialog: typeof import('epluskit')['useEkDialog']
 }

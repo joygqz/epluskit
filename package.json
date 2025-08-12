@@ -76,8 +76,8 @@
     "ios_saf >= 10.3"
   ],
   "scripts": {
-    "dev": "run-s build:module example",
-    "dev-watch": "run-p dev \"build:module {@}\" -- --watch",
+    "dev": "run-p serve \"build:module {@}\" -- --watch",
+    "serve": "run-s build:module example",
     "example": "vite --config vite.serve.config.ts",
     "build": "run-s lint typecheck build:module build:dist",
     "build:module": "vite build --config vite.build.config.ts",

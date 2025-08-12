@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getCurrentInstance, h } from 'vue'
-import TestDialogContent from './components/TestDialogContent.vue'
+import TestDialogContent from './TestDialogContent.vue'
 
 const dialog = useEkDialog({
   title: '提示',

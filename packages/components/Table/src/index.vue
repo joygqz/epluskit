@@ -20,7 +20,8 @@ const { type = 'date', valueFormat = '', rangeSeparator = '至' } = defineProps<
 const _valueFormat = valueFormat || (type === 'datetime' ? 'YYYY-MM-DD HH:mm:ss' : type === 'date' ? 'YYYY-MM-DD' : type === 'month' ? 'YYYY-MM' : 'YYYY')
 
 const modelValue = defineModel<(Date | null)[]>({
-  required: true,
+  type: Array,
+  default: [],
 })
 
 const startValue = ref<Date | null>(null)
