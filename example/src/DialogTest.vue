@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { h } from 'vue'
+import { getCurrentInstance, h } from 'vue'
 import TestDialogContent from './components/TestDialogContent.vue'
 
 const dialog = useEkDialog({
@@ -10,6 +10,8 @@ const dialog = useEkDialog({
     onClose: () => dialog.close(),
   }),
 })
+
+console.log(getCurrentInstance()?.appContext.config.globalProperties.$useEkDialog)
 
 function onOpen() {
   dialog.open()

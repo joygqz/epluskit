@@ -17,7 +17,7 @@ export interface EkDialogInstance {
   destroy: () => void
 }
 
-export function useEkDialog(props: Partial<DialogProps>, slots: EkDialogSlots): EkDialogInstance {
+export default function (props: Partial<DialogProps>, slots: EkDialogSlots): EkDialogInstance {
   const container = document.createElement('div')
   document.body.appendChild(container)
   const modelValue = ref(false)

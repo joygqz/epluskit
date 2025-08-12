@@ -10,5 +10,6 @@
     "erasableSyntaxOnly": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite-env.d.ts", "packages/**/*", "packages/**/*.vue", "example/**/*", "example/**/*.vue"]
+  "include": ["**/*.ts", "**/*.vue"],
+  "exclude": ["node_modules", "dist", "lib", "es"]
 }

@@ -19,7 +19,7 @@ export function withInstallDirective(directive: Directive, name: string): any {
 }
 
 // 安装方法
-export function withInstallFunction(func: ComponentCustomProperties, name: string): any {
+export function withInstallFunction(func: ComponentCustomProperties | CallableFunction, name: string): any {
   return {
     install(app: App): void {
       app.config.globalProperties[name] = func

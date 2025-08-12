@@ -3,18 +3,23 @@ import { fileURLToPath } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import dts from 'unplugin-dts/vite'
 import { defineConfig } from 'vite'
+import pkg from './package.json'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig(({ mode }) => {
   if (mode === 'dist') {
     return {
+      define: {
+        __VERSION__: JSON.stringify(pkg.version),
+      },
       build: {
         lib: {
           formats: ['iife'],
           entry: resolve(__dirname, 'packages/index.ts'),
-          name: 'Epluskit',
-          fileName: 'index',
+          name: 'EplusKit',
+          fileName: () => 'index.js',
+          cssFileName: 'index',
         },
         target: 'es2015',
         rollupOptions: {
@@ -34,6 +39,9 @@ export default defineConfig(({ mode }) => {
     }
   }
   return {
+    define: {
+      __VERSION__: JSON.stringify(pkg.version),
+    },
     build: {
       cssCodeSplit: true,
       lib: {
@@ -69,7 +77,7 @@ export default defineConfig(({ mode }) => {
         include: ['./packages/**/*.{ts,tsx,vue}'],
         tsconfigPath: './tsconfig.app.json',
         copyDtsFiles: true,
-        outDirs: ['es'],
+        outDirs: ['es', 'lib'],
       }),
     ],
   }

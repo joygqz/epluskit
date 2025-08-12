@@ -30,12 +30,7 @@
     "typescript",
     "vite"
   ],
-  "sideEffects": [
-    "*.css",
-    "*.less",
-    "*.scss",
-    "element-plus/es/components/**/style/css"
-  ],
+  "sideEffects": ["**/*.css"],
   "directories": {
     "dist": "./dist",
     "es": "./es",
@@ -52,6 +47,9 @@
   },
   "main": "./lib/index.js",
   "module": "./es/index.js",
+  "unpkg": "./dist/index.js",
+  "jsdelivr": "./dist/index.js",
+  "style": "dist/index.css",
   "types": "./es/index.d.ts",
   "files": [
     "CHANGELOG.md",

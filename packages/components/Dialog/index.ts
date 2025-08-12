@@ -1,8 +1,6 @@
 import { withInstallFunction } from '../../utils/install'
-import { useEkDialog } from './src/index.tsx'
+import useEkDialog from './src/index.ts'
 
-// 按需导入配置
 export { useEkDialog }
 
-// 全局安装函数
-export default withInstallFunction(useEkDialog, 'useEkDialog')
+export default withInstallFunction(useEkDialog, '$useEkDialog')
