@@ -84,7 +84,6 @@
     "build:dist": "vite build --mode dist --config vite.build.config.ts",
     "lint": "eslint --fix",
     "typecheck": "vue-tsc --build",
-    "patch": "npm version patch -m 'chore: release v%s'",
     "prepack": "pnpm build",
     "prepare": "simple-git-hooks",
     "release": "bumpp && pnpm publish"
