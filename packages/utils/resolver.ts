@@ -1,4 +1,4 @@
-export default function () {
+export function EpluskitResolver() {
   return (name: string) => {
     if (name.startsWith('Ek') || name.startsWith('useEk')) {
       let compName = ''
@@ -19,6 +19,10 @@ export default function () {
           ...(compName === 'Dialog'
             ? ['element-plus/es/components/dialog/style/css']
             : []),
+          ...(compName === 'Table'
+            ? ['element-plus/es/components/table/style/css', 'element-plus/es/components/table-column/style/css']
+            : []),
+
         ],
       }
     }

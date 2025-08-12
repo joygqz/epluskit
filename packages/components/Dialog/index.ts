@@ -1,5 +1,5 @@
 import { withInstallFunction } from '../../utils/install'
-import useEkDialog from './src/index.ts'
+import { useEkDialog } from './src/index.ts'
 
 export { useEkDialog }
 

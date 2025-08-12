@@ -13,6 +13,11 @@ export default defineConfig(({ mode }) => {
       define: {
         __VERSION__: JSON.stringify(pkg.version),
       },
+      resolve: {
+        alias: {
+          '@': fileURLToPath(new URL('./packages', import.meta.url)),
+        },
+      },
       build: {
         lib: {
           formats: ['iife'],
@@ -41,6 +46,11 @@ export default defineConfig(({ mode }) => {
   return {
     define: {
       __VERSION__: JSON.stringify(pkg.version),
+    },
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./packages', import.meta.url)),
+      },
     },
     build: {
       cssCodeSplit: true,
