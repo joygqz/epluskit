@@ -82,17 +82,15 @@
     "dev-watch": "run-p dev \"build:module {@}\" -- --watch",
     "example": "vite --config vite.serve.config.ts",
     "tsdown": "tsdown",
-    "build": "run-s lint build:module build:dist",
+    "build": "run-s lint typecheck build:module build:dist",
     "build:module": "vite build --config vite.build.config.ts",
     "build:dist": "vite build --mode dist --config vite.build.config.ts",
-    "lint": "run-p lint:*",
-    "lint:eslint": "eslint --fix ./packages",
-    "lint:typescript": "vue-tsc -b",
+    "lint": "eslint --fix",
+    "typecheck": "vue-tsc --build",
     "patch": "npm version patch -m 'chore: release v%s'",
     "prepack": "pnpm build",
     "prepare": "simple-git-hooks",
-    "release": "bumpp && pnpm publish",
-    "release:dry": "npm publish --dry-run"
+    "release": "bumpp && pnpm publish"
   },
   "peerDependencies": {
     "typescript": ">=5.0.0"

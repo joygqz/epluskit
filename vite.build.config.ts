@@ -9,11 +9,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export default defineConfig(({ mode }) => {
   if (mode === 'dist') {
     return {
-      resolve: {
-        alias: {
-          '@': resolve(__dirname, 'packages'),
-        },
-      },
       build: {
         lib: {
           formats: ['iife'],
@@ -39,11 +34,6 @@ export default defineConfig(({ mode }) => {
     }
   }
   return {
-    resolve: {
-      alias: {
-        '@': resolve(__dirname, 'packages'),
-      },
-    },
     build: {
       cssCodeSplit: true,
       lib: {
@@ -77,7 +67,6 @@ export default defineConfig(({ mode }) => {
       dts({
         processor: 'vue',
         include: ['./packages/**/*.{ts,tsx,vue}'],
-        exclude: ['**/*.css'],
         tsconfigPath: './tsconfig.app.json',
         copyDtsFiles: true,
         outDirs: ['es'],

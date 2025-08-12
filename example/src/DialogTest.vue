@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useEkDialog } from 'epluskit'
 import { h } from 'vue'
 import TestDialogContent from './components/TestDialogContent.vue'
 

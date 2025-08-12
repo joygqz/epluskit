@@ -1,4 +1,4 @@
-import { withInstallFunction } from '@/utils/install.ts'
+import { withInstallFunction } from '../../utils/install'
 import { useEkDialog } from './src/index.tsx'
 
 // 按需导入配置

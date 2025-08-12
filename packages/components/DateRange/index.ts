@@ -1,4 +1,4 @@
-import { withInstall } from '@/utils/install.ts'
+import { withInstall } from '../../utils/install'
 import EkDateRange from './src/index.vue'
 
 // 按需导入配置
