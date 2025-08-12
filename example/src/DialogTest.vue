@@ -7,7 +7,7 @@ const dialog = useEkDialog({
   title: '提示',
 }, {
   content: h(TestDialogContent, {
-    message: '这是一个测试弹1窗',
+    message: '这是一个测试弹窗',
     onClose: () => dialog.close(),
   }),
 })
