@@ -21,18 +21,18 @@ pnpm add element-plus epluskit
 
 ## 快速上手
 
-### 全量引入
+### 完整引入
 
 ```ts
 // ...
 import EplusKit from 'epluskit'
-import 'epluskit/index.css'
+import 'epluskit/dist/index.css'
 
 app.use(EplusKit)
 // ...
 ```
 
-### 按需自动引入（推荐）
+### 按需自动导入（推荐）
 
 安装插件
 
