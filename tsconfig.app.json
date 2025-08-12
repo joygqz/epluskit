@@ -11,5 +11,5 @@
     "noUncheckedSideEffectImports": true
   },
   "include": ["**/*.ts", "**/*.vue"],
-  "exclude": ["node_modules", "dist", "lib", "es"]
+  "exclude": ["node_modules", "dist", "lib", "es", "vite.serve.config.ts"]
 }
