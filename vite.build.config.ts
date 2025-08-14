@@ -59,7 +59,7 @@ export default defineConfig(({ mode }) => {
       },
       target: 'es2015',
       rollupOptions: {
-        external: ['vue', 'element-plus'],
+        external: ['vue', 'element-plus', '@onlyoffice/document-editor-vue'],
         output: [
           {
             exports: 'named',

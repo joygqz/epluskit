@@ -8,10 +8,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    copy: typeof import('./src/components/TableTest copy.vue')['default']
     DateRangeTest: typeof import('./src/components/DateRangeTest.vue')['default']
     DialogTest: typeof import('./src/components/DialogTest.vue')['default']
     EkDateRange: typeof import('epluskit')['EkDateRange']
+    EkOffice: typeof import('epluskit')['EkOffice']
+    EkOnlyOffice: typeof import('epluskit')['EkOnlyOffice']
     EkTable: typeof import('epluskit')['EkTable']
+    OfficeTest: typeof import('./src/components/OfficeTest.vue')['default']
     TableTest: typeof import('./src/components/TableTest.vue')['default']
     TestDialogContent: typeof import('./src/components/TestDialogContent.vue')['default']
   }

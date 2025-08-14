@@ -91,6 +91,8 @@
     "release": "bumpp && pnpm publish"
   },
   "peerDependencies": {
+    "@onlyoffice/document-editor-vue": ">=1.6.0",
+    "element-plus": ">=2.10.0",
     "typescript": ">=5.0.0"
   },
   "peerDependenciesMeta": {
@@ -101,7 +103,9 @@
   "devDependencies": {
     "@antfu/eslint-config": "^5.2.1",
     "@microsoft/api-extractor": "^7.52.10",
+    "@onlyoffice/document-editor-vue": "^1.6.0",
     "@types/node": "^24.2.1",
+    "@types/path-browserify": "^1.0.3",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/language-core": "^3.0.5",
     "@vue/tsconfig": "^0.7.0",
