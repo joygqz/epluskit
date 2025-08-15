@@ -63,7 +63,7 @@ const _config = ref<IConfig>(
           request: false, // 是否请求匿名名称
           label: 'Guest', // 匿名用户标签
         },
-        autosave: true, // 启用自动保存功能
+        autosave: false, // 启用自动保存功能
         close: {
           visible: true,
           text: 'Edfdsafdsafsdafsadfit',
@@ -189,6 +189,10 @@ function onDocumentReady() {
     events_onDocumentReady()
   }
 }
+
+defineExpose({
+  documentEditor,
+})
 </script>
 
 <template>
