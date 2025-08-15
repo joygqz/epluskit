@@ -3,6 +3,10 @@ import type { IConfig } from '@onlyoffice/document-editor-vue'
 import { DocumentEditor } from '@onlyoffice/document-editor-vue'
 import { computed, getCurrentInstance, onMounted, ref } from 'vue'
 
+defineOptions({
+  name: 'EkOnlyOffice',
+})
+
 const { documentServerUrl, document, getToken, callbackUrl, config } = defineProps<{
   documentServerUrl: string
   document?: IConfig['document']

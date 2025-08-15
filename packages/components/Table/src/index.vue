@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ElTableColumn } from 'element-plus'
 import { ElTable } from 'element-plus'
 import TableCell from './table-cell.vue'
 import 'element-plus/es/components/table/style/css'
@@ -10,7 +11,7 @@ defineOptions({
 })
 
 const { columns, data } = defineProps<{
-  columns?: any
+  columns?: typeof ElTableColumn[]
   data?: Record<string, any>[]
 }>()
 </script>

@@ -111,6 +111,7 @@
     "@vue/tsconfig": "^0.7.0",
     "bumpp": "^10.2.3",
     "element-plus": "^2.10.6",
+    "es-toolkit": "^1.39.9",
     "eslint": "^9.33.0",
     "jiti": "^2.5.1",
     "npm-run-all2": "^8.0.4",

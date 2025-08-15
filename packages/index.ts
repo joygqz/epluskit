@@ -1,7 +1,7 @@
-import { EkDateRange } from './components/DateRange/index.ts'
-import { useEkDialog } from './components/Dialog/index.ts'
-import { EkOnlyOffice } from './components/OnlyOffice/index.ts'
-import { EkTable } from './components/Table/index.ts'
+import { EkDateRange } from './components/date-range/index.ts'
+import { useEkDialog } from './components/dialog/index.ts'
+import { EkOnlyOffice } from './components/only-office/index.ts'
+import { EkTable } from './components/table/index.ts'
 import installer from './utils/installer'
 
 // 按需导入解析器

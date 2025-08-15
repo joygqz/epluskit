@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { TableColumn } from '@/types'
 import { ElTableColumn } from 'element-plus'
 
 defineOptions({
@@ -7,13 +6,8 @@ defineOptions({
 })
 
 defineProps<{
-  columns: TableColumn[]
+  columns: any[]
 }>()
-
-function getColumn(column: TableColumn) {
-  const { children, ...rest } = column
-  return rest as TableColumn
-}
 </script>
 
 <template>
@@ -22,7 +16,6 @@ function getColumn(column: TableColumn) {
   >
     <template #default="scoped">
       <slot name="bodyCell" v-bind="scoped">
-        {{ getColumn(column) }}
         <TableCell v-if="column.children && column.children.length" :columns="column.children" />
       </slot>
     </template>

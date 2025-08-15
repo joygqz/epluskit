@@ -1,3 +1,5 @@
+import { kebabCase } from 'es-toolkit/string'
+
 export function EpluskitResolver() {
   return (name: string) => {
     if (name.startsWith('Ek') || name.startsWith('useEk')) {
@@ -12,7 +14,7 @@ export function EpluskitResolver() {
         name,
         from: 'epluskit',
         sideEffects: [
-          `epluskit/es/components/${compName}/src/index.css`,
+          `epluskit/es/components/${kebabCase(compName)}/src/index.css`,
           ...(compName === 'DateRange'
             ? ['element-plus/es/components/date-picker/style/css']
             : []),

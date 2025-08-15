@@ -1,12 +1,12 @@
-import DateRange from './components/DateRange'
-import Dialog from './components/Dialog'
-import OnlyOffice from './components/OnlyOffice'
-import Table from './components/Table'
+import DateRange from './components/date-range'
+import Dialog from './components/dialog'
+import onlyOffice from './components/only-office'
+import Table from './components/table'
 
 const component = [
   DateRange,
   Dialog,
-  OnlyOffice,
+  onlyOffice,
   Table,
 ]
 
