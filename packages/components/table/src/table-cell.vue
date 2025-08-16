@@ -15,32 +15,33 @@ defineProps<{
   <ElTableColumn
     v-for="column in columns" :key="column.columnKey || column.prop || column.label" v-bind="omit(column, ['children'])"
   >
-    <template #default="scoped">
-      <slot name="bodyCell" v-bind="{ scoped, column }">
+    <template #default="scope">
+      <span v-if="column.customRender">{{ column.customRender(scope.row[column.prop], scope, column) }}</span>
+      <slot v-else name="bodyCell" v-bind="{ scope, column }">
         <TableCell v-if="column.children && column.children.length" :columns="column.children">
           <template v-if="$slots.bodyCell" #bodyCell>
-            <slot name="bodyCell" v-bind="scoped" />
+            <slot name="bodyCell" v-bind="scope" />
           </template>
           <template v-if="$slots.headerCell" #headerCell>
-            <slot name="headerCell" v-bind="scoped" />
+            <slot name="headerCell" v-bind="scope" />
           </template>
           <template v-if="$slots.expandCell" #expandCell>
-            <slot name="expandCell" v-bind="scoped" />
+            <slot name="expandCell" v-bind="scope" />
           </template>
           <template v-if="$slots.filterIconCell" #filterIconCell>
-            <slot name="filterIconCell" v-bind="scoped" />
+            <slot name="filterIconCell" v-bind="scope" />
           </template>
         </TableCell>
       </slot>
     </template>
-    <template v-if="$slots.headerCell" #header="scoped">
-      <slot name="headerCell" v-bind="{ scoped, column }" />
+    <template v-if="$slots.headerCell" #header="scope">
+      <slot name="headerCell" v-bind="{ scope, column }" />
     </template>
-    <template v-if="$slots.expandCell" #expand="scoped">
-      <slot name="expandCell" v-bind="{ scoped, column }" />
+    <template v-if="$slots.expandCell" #expand="scope">
+      <slot name="expandCell" v-bind="{ scope, column }" />
     </template>
-    <template v-if="$slots.filterIconCell" #filter-icon="scoped">
-      <slot name="filterIconCell" v-bind="{ scoped, column }" />
+    <template v-if="$slots.filterIconCell" #filter-icon="scope">
+      <slot name="filterIconCell" v-bind="{ scope, column }" />
     </template>
   </ElTableColumn>
 </template>

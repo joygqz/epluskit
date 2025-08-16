@@ -18,24 +18,24 @@ const { columns, data } = defineProps<{
 <template>
   <ElTable :data="data" :border="true" :stripe="true" v-bind="$attrs">
     <TableCell v-if="columns && columns.length" :columns="columns">
-      <template v-if="$slots.bodyCell" #bodyCell="scoped">
-        <slot name="bodyCell" v-bind="scoped" />
+      <template #bodyCell="scope">
+        <slot name="bodyCell" v-bind="scope" />
       </template>
-      <template v-if="$slots.headerCell" #headerCell="scoped">
-        <slot name="headerCell" v-bind="scoped" />
+      <template #headerCell="scope">
+        <slot name="headerCell" v-bind="scope" />
       </template>
-      <template v-if="$slots.expandCell" #expandCell="scoped">
-        <slot name="expandCell" v-bind="scoped" />
+      <template #expandCell="scope">
+        <slot name="expandCell" v-bind="scope" />
       </template>
-      <template v-if="$slots.filterIconCell" #filterIconCell="scoped">
-        <slot name="filterIconCell" v-bind="scoped" />
+      <template #filterIconCell="scope">
+        <slot name="filterIconCell" v-bind="scope" />
       </template>
     </TableCell>
-    <template #empty="scoped">
-      <slot name="empty" v-bind="scoped" />
+    <template #empty="scope">
+      <slot name="empty" v-bind="scope" />
     </template>
-    <template #append="scoped">
-      <slot name="append" v-bind="scoped" />
+    <template #append="scope">
+      <slot name="append" v-bind="scope" />
     </template>
   </ElTable>
 </template>

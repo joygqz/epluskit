@@ -29,6 +29,9 @@ const columns = [
       {
         label: 'Address',
         prop: 'address',
+        customRender: (text: string) => {
+          return `地址：${text}`
+        },
       },
     ],
   },
