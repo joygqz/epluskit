@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { h } from 'vue'
+
 const columns = [
   // {
   //   label: '1',
@@ -30,7 +32,7 @@ const columns = [
         label: 'Address',
         prop: 'address',
         customRender: (text: string) => {
-          return `地址：${text}`
+          return h('span', {}, `地址: ${text}`)
         },
       },
     ],

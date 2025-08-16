@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ElTableColumn } from 'element-plus'
 import { omit } from 'es-toolkit'
+import VNodeRenderer from '@/utils/v-node-renderer'
 
 defineOptions({
   name: 'TableCell',
@@ -16,7 +17,7 @@ defineProps<{
     v-for="column in columns" :key="column.columnKey || column.prop || column.label" v-bind="omit(column, ['children'])"
   >
     <template #default="scope">
-      <span v-if="column.customRender">{{ column.customRender(scope.row[column.prop], scope, column) }}</span>
+      <VNodeRenderer v-if="column.customRender" :vnode="column.customRender(scope.row[column.prop], scope, column)" />
       <slot v-else name="bodyCell" v-bind="{ scope, column }">
         <TableCell v-if="column.children && column.children.length" :columns="column.children">
           <template v-if="$slots.bodyCell" #bodyCell>
