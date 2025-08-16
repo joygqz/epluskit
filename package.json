@@ -67,10 +67,9 @@
     "npm": ">=8.0.0"
   },
   "browserslist": [
-    "Chrome >= 85",
-    "Firefox >= 79",
-    "Safari >= 14.1",
-    "Edge >= 85"
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
   ],
   "scripts": {
     "dev": "run-p serve \"build:module {@}\" -- --watch",
