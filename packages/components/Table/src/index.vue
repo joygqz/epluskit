@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { ElTableColumn } from 'element-plus'
 import { ElTable } from 'element-plus'
 import TableCell from './table-cell.vue'
 import 'element-plus/es/components/table/style/css'
@@ -11,14 +10,27 @@ defineOptions({
 })
 
 const { columns, data } = defineProps<{
-  columns?: typeof ElTableColumn[]
+  columns?: any[]
   data?: Record<string, any>[]
 }>()
 </script>
 
 <template>
-  <ElTable :data="data" v-bind="$attrs">
-    <TableCell v-if="columns && columns.length" :columns="columns" />
+  <ElTable :data="data" :border="true" :stripe="true" v-bind="$attrs">
+    <TableCell v-if="columns && columns.length" :columns="columns">
+      <template v-if="$slots.bodyCell" #bodyCell="scoped">
+        <slot name="bodyCell" v-bind="scoped" />
+      </template>
+      <template v-if="$slots.headerCell" #headerCell="scoped">
+        <slot name="headerCell" v-bind="scoped" />
+      </template>
+      <template v-if="$slots.expandCell" #expandCell="scoped">
+        <slot name="expandCell" v-bind="scoped" />
+      </template>
+      <template v-if="$slots.filterIconCell" #filterIconCell="scoped">
+        <slot name="filterIconCell" v-bind="scoped" />
+      </template>
+    </TableCell>
     <template #empty="scoped">
       <slot name="empty" v-bind="scoped" />
     </template>

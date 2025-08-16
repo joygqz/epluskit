@@ -1,15 +1,15 @@
 <script setup lang="ts">
 // import DateRangeTest from './components/DateRangeTest.vue'
 // import DialogTest from './components/DialogTest.vue'
-// import TableTest from './components/TableTest.vue'
-import OfficeTest from './components/OfficeTest.vue'
+import TableTest from './components/TableTest.vue'
+// import OfficeTest from './components/OfficeTest.vue'
 </script>
 
 <template>
   <!-- <DialogTest /> -->
   <!-- <DateRangeTest /> -->
-  <!-- <TableTest /> -->
-  <OfficeTest />
+  <TableTest />
+  <!-- <OfficeTest /> -->
 </template>
 
 <style>
