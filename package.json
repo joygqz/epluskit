@@ -67,15 +67,10 @@
     "npm": ">=8.0.0"
   },
   "browserslist": [
-    "es6",
-    "not dead",
-    "Chrome >= 51",
-    "Firefox >= 54",
-    "Safari >= 10",
-    "Edge >= 79",
-    "and_chr >= 51",
-    "and_ff >= 54",
-    "ios_saf >= 10.3"
+    "Chrome >= 85",
+    "Firefox >= 79",
+    "Safari >= 14.1",
+    "Edge >= 85"
   ],
   "scripts": {
     "dev": "run-p serve \"build:module {@}\" -- --watch",
