@@ -64,7 +64,9 @@ export default defineConfig({
 
 ## 组件与工具目录
 
+- EkTable 组件：命令式声明表格
 - EkDateRange 组件：双日期选择器
+- EkOnlyOffice 组件：OnlyOffice 编辑器
 - useEkDialog 命令：命令式弹窗
 - ...（更多组件和工具，详见 `packages/components`）
 
