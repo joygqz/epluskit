@@ -68,7 +68,11 @@ export default defineConfig({
 - EkDateRange 组件：双日期选择器
 - EkOnlyOffice 组件：OnlyOffice 编辑器
 - useEkDialog 命令：命令式弹窗
-- ...（更多组件和工具，详见 `packages/components`）
+- ...（更多组件和工具，详见 [`packages/components`](https://github.com/joygqz/epluskit/tree/main/packages/components)）
+
+## 使用示例参考
+
+详见 [`example/src`](https://github.com/joygqz/epluskit/tree/main/example/src)
 
 ## License
 
